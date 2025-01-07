@@ -7,13 +7,22 @@ ENV POSTGRES_USER=postgres
 ENV POSTGRES_PASSWORD=Ea65EDd236fAGF2bg4fG1CDA4g34adgc
 ENV POSTGRES_HOST=postgis.railway.internal
 ENV POSTGRES_PORT=5432
-
-# Optional: Set GeoServer admin credentials
-ENV GEOSERVER_ADMIN_USER=admin
 ENV GEOSERVER_ADMIN_PASSWORD=geoserver
+ENV GEOSERVER_ADMIN_USER=admin
 
-# Optional: Configure Java options
-ENV EXTRA_JAVA_OPTS="-Xms512m -Xmx2g"
+# Install any additional dependencies if needed
+USER root
+RUN apt-get update && apt-get install -y postgresql-client
+
+# Create directory for persistent data
+RUN mkdir -p /opt/geoserver_data && \
+    chown -R geoserver:geoserver /opt/geoserver_data
+
+    # Switch back to geoserver user
+USER geoserver
 
 # Expose the default GeoServer port
 EXPOSE 8080
+
+# Start GeoServer
+CMD ["/opt/geoserver/bin/startup.sh"]
