@@ -30,4 +30,4 @@ USER geoserver
 EXPOSE 8080
 
 # Start GeoServer
-CMD ["/opt/geoserver/bin/startup.sh"]
+# CMD ["/opt/geoserver/bin/startup.sh"]
