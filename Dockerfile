@@ -14,10 +14,6 @@ ENV GEOSERVER_ADMIN_USER=admin
 USER root
 RUN apt-get update && apt-get install -y postgresql-client
 
-# Create directory for persistent data
-RUN mkdir -p /opt/geoserver_data && \
-    chown -R geoserver:geoserver /opt/geoserver_data
-
     # Switch back to geoserver user
 USER geoserver
 
