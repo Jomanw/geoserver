@@ -23,11 +23,11 @@ ENV PROXY_BASE_URL=${RAILWAY_PUBLIC_DOMAIN}
 USER root
 RUN apt-get update && apt-get install -y postgresql-client
 
-    # Switch back to geoserver user
-USER geoserver
+# # Switch back to geoserver user
+# USER geoserver
 
 # Expose the default GeoServer port
 EXPOSE 8080
 
-# Start GeoServer
+# # Start GeoServer
 # CMD ["/opt/geoserver/bin/startup.sh"]
