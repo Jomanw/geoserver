@@ -9,6 +9,8 @@ ENV POSTGRES_HOST=postgis.railway.internal
 ENV POSTGRES_PORT=5432
 ENV GEOSERVER_ADMIN_PASSWORD=geoserver
 ENV GEOSERVER_ADMIN_USER=admin
+ENV GEOSERVER_ADMIN=admin
+ENV GEOSERVER_PASSWORD=geoserver
 
 # Install any additional dependencies if needed
 USER root
