@@ -16,12 +16,16 @@ ENV GEOSERVER_PASSWORD=geoserver
 # ENV GEOSERVER_PUBLIC_LOCATION=https://${RAILWAY_PUBLIC_DOMAIN}/geoserver/
 # ENV GEOSERVER_LOCATION=http://localhost:8080/geoserver/
 
+# CORS Configuration
+ENV CORS_ENABLED=true
+ENV CORS_ALLOWED_ORIGINS=*
+ENV CORS_ALLOWED_METHODS=GET,POST,PUT,DELETE,HEAD,OPTIONS
+ENV CORS_ALLOWED_HEADERS=Origin,Accept,X-Requested-With,Content-Type,Access-Control-Request-Method,Access-Control-Request-Headers
+ENV CORS_ALLOW_CREDENTIALS=false
+
 # Allow environment variable parametrization
 ENV JAVA_OPTS="-DALLOW_ENV_PARAMETRIZATION=true"
-# Disable CSRF for initial setup
 ENV GEOSERVER_CSRF_DISABLED=true
-
-# Set the proxy base URL to your Railway deployment URL
 ENV PROXY_BASE_URL=${RAILWAY_PUBLIC_DOMAIN}
 
 # Install any additional dependencies if needed
