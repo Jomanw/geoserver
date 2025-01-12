@@ -32,6 +32,8 @@ RUN apt-get update && apt-get install -y postgresql-client
 COPY src/web/app/src/main/webapp/WEB-INF/web.xml /opt/geoserver/webapps/geoserver/WEB-INF/web.xml
 # Copy the custom web.xml file (my path, from perplexity)
 COPY src/web/app/src/main/webapp/WEB-INF/web.xml /usr/share/geoserver/webapps/geoserver/WEB-INF/web.xml
+# Copy the custom web.xml file (my path, from perplexity)
+COPY src/web/app/src/main/webapp/WEB-INF/web.xml /opt/config_overrides/web.xml
 
 # Expose the default GeoServer port
 EXPOSE 8080
